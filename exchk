@@ -1,0 +1,7 @@
+#!/bin/sh
+NUM=${1:-1}
+
+for t in chk/test??
+do
+   echo $NUM | $t
+done
