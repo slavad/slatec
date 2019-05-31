@@ -8,8 +8,11 @@ all:
 install:
 	cd src; make install
 
-clean:
+clean_src:
 	cd src; make clean
+
+clean_chk:
+	cd chk; make clean
 
 test:
 	$(MAKE) -C chk

@@ -31,7 +31,7 @@ isrtqc.o itest.o jac.o lce.o lceres.o lde.o lderes.o lse.o lseiqx.o\
 lseres.o outerr.o pass.o pchqk1.o pchqk2.o pchqk3.o pchqk4.o pchqk5.o\
 pfitqx.o pntchk.o qc36j.o qc6a.o qcdrc.o qcdrd.o qcdrf.o qcdrj.o\
 qcglss.o qckin.o qcpsi.o qcrc.o qcrd.o qcrf.o qcrj.o qg8tst.o qn79qx.o\
-qxabm.o qxbdf.o qxblkt.o qxbvsp.o qxcrt.o qxcsp.o qxcyl.o qxdabm.o\
+qxabm.o qxbdf.o qxblkt.o qxcrt.o qxcsp.o qxcyl.o qxdabm.o\
 qxdbdf.o qxdbvs.o qxdrkf.o qxgbun.o qxplr.o qxrkf.o qxssp.o rqrtst.o\
 sbeg.o sblat2.o sblat3.o sbocqx.o schk12.o schk13.o schk22.o schk23.o\
 schk32.o schk33.o schk42.o schk43.o schk52.o schk53.o schk62.o\
@@ -49,14 +49,15 @@ PROGS = test01 test02 test03 test04\
 	test25 test26 test27 test28 test29\
 	test30 test31 test32 test33 test34\
 	test35 test36 test37 test38 test39\
-	test40 test41 test42 test43 test44\
+	test40 test41 test42\
 	test45 test46 test47 test48 test49\
 	test50 test51 test52 test53 test54\
 
-FC = g77
 FFLAGS = -g
 LIB = libslachk.a
-SLIB = ../libslatec.a
+SLIB = ../src/static/libslatec.a
+LDFLAGS = -lslachk -lslatec -llapack
+LIBDIR = ../src/static/
 
 all: $(PROGS)
 
@@ -64,173 +65,165 @@ clean:
 	-$(RM) $(PROGS) $(LIB) $(OBJ) test??.o
 
 $(SLIB):
-	$(MAKE) -C ../src
+	$(MAKE) -C ../src/
 
 $(LIB): $(OBJ)
 	ar r $@ $?
 	ranlib $@
 
 test01 : test01.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test02 : test02.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test03 : test03.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test04 : test04.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test05 : test05.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test06 : test06.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test07 : test07.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test08 : test08.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test09 : test09.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test10 : test10.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test11 : test11.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test12 : test12.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test13 : test13.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test14 : test14.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test15 : test15.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test16 : test16.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test17 : test17.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test18 : test18.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test19 : test19.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test20 : test20.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test21 : test21.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test22 : test22.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test23 : test23.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test24 : test24.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test25 : test25.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test26 : test26.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test27 : test27.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test28 : test28.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test29 : test29.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test30 : test30.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test31 : test31.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test32 : test32.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test33 : test33.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test34 : test34.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test35 : test35.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test36 : test36.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test37 : test37.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test38 : test38.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test39 : test39.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test40 : test40.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test41 : test41.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test42 : test42.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
-
-# after 2 have dependency problems...
-#
-test43 : test43.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec -lslachk
-
-test44 : test44.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec -lslachk
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test45 : test45.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test46 : test46.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test47 : test47.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test48 : test48.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test49 : test49.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test50 : test50.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test51 : test51.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test52 : test52.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test53 : test53.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
 test54 : test54.o $(LIB) $(SLIB)
-	$(FC) -o $@ $< -L. -L../ -lslachk -lslatec
+	$(FC) -o $@ $< -L. -L${LIBDIR} ${LDFLAGS}
 
