@@ -41,6 +41,8 @@ snls1q.o snsqqk.o sosfnc.o sosnqx.o splpqx.o sqck.o sqfcn2.o sqjac2.o\
 srmgen.o ssrtqc.o stest.o t0.o t1.o t2.o t3.o t4.o t5.o uivp.o uvec.o\
 vfill.o xcsrt.o zqcai.o zqcbh.o zqcbi.o zqcbj.o zqcbk.o zqcby.o
 
+# test43 and test44 were removed, since the function they test
+# is not included in the distribution
 PROGS = test01 test02 test03 test04\
 	test05 test06 test07 test08 test09\
 	test10 test11 test12 test13 test14\
