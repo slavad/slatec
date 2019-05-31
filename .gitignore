@@ -5,3 +5,4 @@
 *.1
 chk/test*
 *.log
+.DS_Store

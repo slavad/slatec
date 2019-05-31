@@ -11,8 +11,10 @@ install:
 clean_src:
 	cd src; make clean
 
-clean_chk:
+clean_test:
 	cd chk; make clean
+
+clean: clean_src clean_src
 
 test:
 	$(MAKE) -C chk
