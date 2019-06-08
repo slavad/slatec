@@ -33,7 +33,7 @@ csidi.o csifa.o csinh.o csisl.o cspco.o cspdi.o cspfa.o cspsl.o\
 csroot.o csrot.o csscal.o cswap.o csymm.o csyr2k.o csyrk.o\
 ctanh.o ctbmv.o ctbsv.o ctpmv.o ctpsv.o ctrco.o ctrdi.o ctrmm.o\
 ctrmv.o ctrsl.o ctrsm.o ctrsv.o cuchk.o cunhj.o cuni1.o cuni2.o\
-cunik.o cunk1.o cunk2.o cuoik.o cv.o cwrsk.o d1mach.o d1merg.o\
+cunik.o cunk1.o cunk2.o cuoik.o cv.o cwrsk.o d1merg.o\
 d1mpyq.o d1updt.o d9aimp.o d9atn1.o d9b0mp.o d9b1mp.o d9chu.o d9gmic.o\
 d9gmit.o d9knus.o d9lgic.o d9lgit.o d9lgmc.o d9ln2r.o d9pak.o d9upak.o\
 dacosh.o dai.o daie.o dasinh.o dasum.o dasyik.o dasyjy.o datanh.o\
@@ -194,12 +194,15 @@ FFLAGSA =
 OBJN = scnrm2.o cqrdc.o cqrsl.o csvdc.o cdriv2.o cdriv3.o
 FFLAGSN =
 
+OBJM = d1mach.o
+FFLAGSM = -fno-range-check
+
 #FC  = g77
 FC  = gfortran
-FFLAGS = -O
+FFLAGS = -O -std=legacy
 TARGET = ../libslatec.a
 
-$(TARGET) : $(OBJ) $(OBJ4) $(OBJ9) $(OBJN)
+$(TARGET) : $(OBJ) $(OBJ4) $(OBJ9) $(OBJN) $(OBJM)
 	ar r $@ $?
 	ranlib $@
 
@@ -209,6 +212,9 @@ $(OBJ4) $(OBJ9):
 $(OBJN):
 	$(FC) $(FFLAGSN) -c $*.f
 
+$(OBJM):
+	$(FC) $(FFLAGSM) -c $*.f
+
 clean:
-	-$(RM) $(TARGET) $(OBJ) $(OBJN) $(OBJ4) $(OBJ9)
+	-$(RM) $(TARGET) $(OBJ) $(OBJN) $(OBJ4) $(OBJ9) $(OBJM)
 
