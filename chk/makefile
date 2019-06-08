@@ -53,7 +53,8 @@ PROGS = test01 test02 test03 test04\
 	test45 test46 test47 test48 test49\
 	test50 test51 test52 test53 test54\
 
-FC = g77
+#FC = g77
+FC = gfortran
 FFLAGS = -g
 LIB = libslachk.a
 SLIB = ../libslatec.a

@@ -185,7 +185,8 @@ OBJ9 = cairy.o cbesh.o cbesi.o cbesj.o cbesk.o cbesy.o
 
 # if you have problem aboves with g77, use f2c (or any) instead.
 #FCA = fort77
-FCA = g77
+#FCA = g77
+FCA = gfortran
 FFLAGSA =
 
 # Followings may have problems with "g77 -O"
@@ -193,7 +194,8 @@ FFLAGSA =
 OBJN = scnrm2.o cqrdc.o cqrsl.o csvdc.o cdriv2.o cdriv3.o
 FFLAGSN =
 
-FC  = g77
+#FC  = g77
+FC  = gfortran
 FFLAGS = -O
 TARGET = ../libslatec.a
 
