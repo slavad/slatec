@@ -94,6 +94,27 @@ C
       SAVE IMACH
       EQUIVALENCE (IMACH(4),OUTPUT)
 C
+C     MACHINE CONSTANTS FOR THE EGCS G77 COMPILER with ix86 
+C     see <limits.h> and <float.h> at 
+C     /usr/lib/gcc-lib/*/*/include/ for details
+C
+      DATA IMACH( 1) /          5 /
+      DATA IMACH( 2) /          6 /
+      DATA IMACH( 3) /          0 /
+      DATA IMACH( 4) /          0 /
+      DATA IMACH( 5) /         32 /
+      DATA IMACH( 6) /          4 /
+      DATA IMACH( 7) /          2 /
+      DATA IMACH( 8) /         31 /
+      DATA IMACH( 9) / 2147483647 /
+      DATA IMACH(10) /          2 /
+      DATA IMACH(11) /         24 /
+      DATA IMACH(12) /       -125 /
+      DATA IMACH(13) /        128 /
+      DATA IMACH(14) /         53 /
+      DATA IMACH(15) /      -1021 /
+      DATA IMACH(16) /       1024 /
+C
 C     MACHINE CONSTANTS FOR THE AMIGA
 C     ABSOFT COMPILER
 C
@@ -643,22 +664,22 @@ C     DATA IMACH(16) /         63 /
 C
 C     MACHINE CONSTANTS FOR THE IBM PC
 C
-      DATA IMACH( 1) /          5 /
-      DATA IMACH( 2) /          6 /
-      DATA IMACH( 3) /          0 /
-      DATA IMACH( 4) /          0 /
-      DATA IMACH( 5) /         32 /
-      DATA IMACH( 6) /          4 /
-      DATA IMACH( 7) /          2 /
-      DATA IMACH( 8) /         31 /
-      DATA IMACH( 9) / 2147483647 /
-      DATA IMACH(10) /          2 /
-      DATA IMACH(11) /         24 /
-      DATA IMACH(12) /       -125 /
-      DATA IMACH(13) /        127 /
-      DATA IMACH(14) /         53 /
-      DATA IMACH(15) /      -1021 /
-      DATA IMACH(16) /       1023 /
+C     DATA IMACH( 1) /          5 /
+C     DATA IMACH( 2) /          6 /
+C     DATA IMACH( 3) /          0 /
+C     DATA IMACH( 4) /          0 /
+C     DATA IMACH( 5) /         32 /
+C     DATA IMACH( 6) /          4 /
+C     DATA IMACH( 7) /          2 /
+C     DATA IMACH( 8) /         31 /
+C     DATA IMACH( 9) / 2147483647 /
+C     DATA IMACH(10) /          2 /
+C     DATA IMACH(11) /         24 /
+C     DATA IMACH(12) /       -125 /
+C     DATA IMACH(13) /        127 /
+C     DATA IMACH(14) /         53 /
+C     DATA IMACH(15) /      -1021 /
+C     DATA IMACH(16) /       1023 /
 C
 C     MACHINE CONSTANTS FOR THE IBM RS 6000
 C

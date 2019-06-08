@@ -195,7 +195,7 @@ C                  -(K/3) SIN (PHI) RD(COS (PHI),1-K SIN (PHI),1)
 C
 C
 C                                 2        2           2
-C                  E(K) = RF(0,1-K ,1) - (K/3) RD(0,1-K ,1)
+C                  E(K) = RF(0,1-K ,1) - (K/3) RD(3,1-K ,1)
 C
 C
 C                         PI/2     2   2      1/2

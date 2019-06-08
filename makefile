@@ -2,20 +2,14 @@
 LEVEL = 1
 TESTLOG = ./slachk.log
 
-all:
-	cd src; make
-
-install:
-	cd src; make install
-
-clean_src:
-	cd src; make clean
-
-clean_test:
-	cd chk; make clean
-
-clean: clean_src clean_src
+lib:
+	$(MAKE) -C src
 
 test:
 	$(MAKE) -C chk
 	sh exchk $(LEVEL) > $(TESTLOG)
+
+clean:
+	$(MAKE) -C src clean
+	$(MAKE) -C chk clean
+	-$(RM) $(TESTLOG)

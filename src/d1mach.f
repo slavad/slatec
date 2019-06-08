@@ -69,14 +69,36 @@ C           (BKS, WRB)
 C   930201  Added DEC Alpha and SGI constants.  (RWC and WRB)
 C***END PROLOGUE  D1MACH
 C
+      INTEGER SMALL(4)
+      INTEGER LARGE(4)
+      INTEGER RIGHT(4)
+      INTEGER DIVER(4)
+      INTEGER LOG10(4)
 C
-	external dlamch
-      DOUBLE PRECISION DMACH(5),dlamch
-	integer iflag
-
-      SAVE DMACH,iflag
-	data iflag/0/
+      DOUBLE PRECISION DMACH(5)
+      SAVE DMACH
 C
+      EQUIVALENCE (DMACH(1),SMALL(1))
+      EQUIVALENCE (DMACH(2),LARGE(1))
+      EQUIVALENCE (DMACH(3),RIGHT(1))
+      EQUIVALENCE (DMACH(4),DIVER(1))
+      EQUIVALENCE (DMACH(5),LOG10(1))
+C
+C     MACHINE CONSTANTS FOR THE EGCS G77 COMPILER with ix86
+C     see <float.h> at
+C     /usr/lib/gcc-lib/*/*/include/ for details
+C
+C     DATA DMACH(1) / 2.2250738585072014D-308 /
+C     DATA DMACH(2) / 1.7976931348623157D+308 /
+C     DATA DMACH(3) / 1.1102230246251565D-16 /
+C     DATA DMACH(4) / 2.2204460492503131D-16 /
+C     DATA DMACH(5) / 0.301029995663981195D0 /
+C
+      DATA SMALL(2), SMALL(1) / Z'00100000', Z'00000000' /
+      DATA LARGE(2), LARGE(1) / Z'7FEFFFFF', Z'FFFFFFFF' /
+      DATA RIGHT(2), RIGHT(1) / Z'3CA00000', Z'00000000' /
+      DATA DIVER(2), DIVER(1) / Z'3CB00000', Z'00000000' /
+      DATA LOG10(2), LOG10(1) / Z'3FD34413', Z'509F79FF' /
 C
 C     MACHINE CONSTANTS FOR THE AMIGA
 C     ABSOFT FORTRAN COMPILER USING THE 68020/68881 COMPILER OPTION
@@ -490,15 +512,6 @@ C***FIRST EXECUTABLE STATEMENT  D1MACH
       IF (I .LT. 1 .OR. I .GT. 5) CALL XERMSG ('SLATEC', 'D1MACH',
      +   'I OUT OF BOUNDS', 1, 2)
 C
-	if (iflag.eq.0) then
-	   iflag=1
-	   dmach(1)=dlamch('u')
-	   dmach(2)=dlamch('o')
-	   dmach(3)=dlamch('e')
-	   dmach(4)=dlamch('p')
-	   dmach(5)=dlamch('b')
-	   dmach(5)=log10(dmach(5))
-	endif
       D1MACH = DMACH(I)
       RETURN
 C
