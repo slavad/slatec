@@ -4,5 +4,6 @@
 *.dylib
 *.1
 chk/test*
+!chk/test*.f
 *.log
 .DS_Store
