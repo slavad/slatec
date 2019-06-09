@@ -207,13 +207,13 @@ $(TARGET) : $(OBJ) $(OBJ4) $(OBJ9) $(OBJN) $(OBJM)
 	ar r $@ $?
 	ranlib $@
 
-$(OBJ4) $(OBJ9):
+$(OBJ4) $(OBJ9): %.o: %.f
 	$(FCA) $(FFLAGSA) -c $*.f
 
-$(OBJN):
+$(OBJN): %.o: %.f
 	$(FC) $(FFLAGSN) -c $*.f
 
-$(OBJM):
+$(OBJM): %.o: %.f
 	$(FC) $(FFLAGSM) -c $*.f
 
 clean:
