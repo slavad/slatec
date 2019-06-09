@@ -55,7 +55,7 @@ PROGS = test01 test02 test03 test04\
 
 #FC = g77
 FC = gfortran
-FFLAGS = -g
+FFLAGS = -g -std=legacy
 LIB = libslachk.a
 SLIB = ../libslatec.a
 

@@ -101,7 +101,7 @@ fzero.o gami.o gamic.o gamit.o gamlim.o gamln.o gamma.o gamr.o gamrn.o\
 gaus8.o genbun.o h12.o hfti.o hkseq.o hpperm.o hpsort.o hqr.o hqr2.o\
 hstart.o hstcrt.o hstcs1.o hstcsp.o hstcyl.o hstplr.o hstssp.o\
 htrib3.o htribk.o htrid3.o htridi.o hvnrm.o hw3crt.o hwscrt.o hwscs1.o\
-hwscsp.o hwscyl.o hwsplr.o hwsss1.o hwsssp.o i1mach.o i1merg.o\
+hwscsp.o hwscyl.o hwsplr.o hwsss1.o hwsssp.o i1merg.o\
 icamax.o icopy.o idamax.o idloc.o imtql1.o imtql2.o imtqlv.o indxa.o\
 indxb.o indxc.o initds.o inits.o intrv.o intyd.o invit.o inxca.o\
 inxcb.o inxcc.o iploc.o ipperm.o ipsort.o isamax.o isdbcg.o isdcg.o\
@@ -127,7 +127,7 @@ qawf.o qawfe.o qawo.o qawoe.o qaws.o qawse.o qc25c.o qc25f.o qc25s.o\
 qcheb.o qelg.o qform.o qk15.o qk15i.o qk15w.o qk21.o qk31.o qk41.o\
 qk51.o qk61.o qmomo.o qnc79.o qng.o qpdoc.o qpsrt.o qrfac.o qrsolv.o\
 qs2i1d.o qs2i1r.o qwgtc.o qwgtf.o qwgts.o qzhes.o qzit.o qzval.o\
-qzvec.o r1mach.o r1mpyq.o r1updt.o r9aimp.o r9atn1.o r9chu.o r9gmic.o\
+qzvec.o r1mpyq.o r1updt.o r9aimp.o r9atn1.o r9chu.o r9gmic.o\
 r9gmit.o r9knus.o r9lgic.o r9lgit.o r9lgmc.o r9ln2r.o r9pak.o r9upak.o\
 radb2.o radb3.o radb4.o radb5.o radbg.o radf2.o radf3.o radf4.o\
 radf5.o radfg.o rand.o ratqr.o rc.o rc3jj.o rc3jm.o rc6j.o rd.o\
@@ -194,8 +194,9 @@ FFLAGSA =
 OBJN = scnrm2.o cqrdc.o cqrsl.o csvdc.o cdriv2.o cdriv3.o
 FFLAGSN =
 
-OBJM = d1mach.o
+OBJM = d1mach.o r1mach.o i1mach.o
 FFLAGSM = -fno-range-check
+# FFLAGSM = 
 
 #FC  = g77
 FC  = gfortran
