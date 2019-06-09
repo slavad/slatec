@@ -166,7 +166,7 @@ C
 C     FORM NORM OF X0
 C
       XNORM=SASUM(N,V(1),1)
-      IF (XNORM.NE.0.0) THEN
+      IF (XNORM.EQ.0.0) THEN
          IND = 75
          RETURN
       ENDIF
